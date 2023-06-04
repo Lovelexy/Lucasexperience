@@ -11,9 +11,9 @@ const ImageCard = ({ item }) => {
   const image = item.image;
 
   return (
-    <li className="grid gap-8">
+    <li className="grid gap-8 rounded-lg">
       {prismic.isFilled.image(image) && (
-        <div className="bg-gray-100">
+        <div className="bg-gray-100 rounded-lg">
           <ConditionalWrap
             condition={prismic.isFilled.link(item.buttonLink)}
             wrap={({ children }) => (
@@ -22,7 +22,7 @@ const ImageCard = ({ item }) => {
               </PrismicNextLink>
             )}
           >
-            <PrismicNextImage field={image} sizes="100vw" className="w-full" />
+            <PrismicNextImage field={image} sizes="100vw" className="w-full rounded-lg" />
           </ConditionalWrap>
         </div>
       )}

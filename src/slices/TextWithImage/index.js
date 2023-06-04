@@ -9,7 +9,7 @@ const TextWithImage = ({ slice }) => {
 
   return (
     <Bounded as="section" className="bg-white">
-      <div className="grid grid-cols-1 items-center gap-8 md:grid-cols-2">
+      <div className="grid grid-cols-1 items-center gap-8 md:grid-cols-2 rounded-lg">
         <div>
           <PrismicRichText field={slice.primary.text} />
         </div>
@@ -19,7 +19,7 @@ const TextWithImage = ({ slice }) => {
               <PrismicNextImage
                 field={image}
                 sizes="100vw"
-                className="w-full"
+                className="w-50 rounded-lg"
               />
             </div>
           )}

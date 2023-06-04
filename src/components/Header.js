@@ -7,13 +7,13 @@ import { Bounded } from "./Bounded";
 
 export function Header({ navigation, settings }) {
   return (
-    <Bounded as="header" yPadding="sm">
-      <div className="flex flex-wrap items-baseline justify-between gap-x-6 gap-y-3 leading-none ">
+    <Bounded as="header" yPadding="sm" className="bg-transparent fixed justify-between w-full">
+      <div className="flex flex-wrap items-baseline justify-between gap-x-6 gap-y-3 leading-none text-bizarro  ">
         <PrismicNextLink
           href="/"
-          className="text-xl font-semibold tracking-tight w-auto h-30 flex items-center mx-8"
+          className="white text-xl font-semibold tracking-tight w-auto h-30 flex items-center mr-8"
         >
-          <PrismicText field={settings.data.siteTitle} />
+          <PrismicText  field={settings.data.siteTitle} />
           <PrismicNextImage className="w-20 mx-8 " field={settings.data.logo} />
         </PrismicNextLink>
         <nav>
@@ -21,10 +21,10 @@ export function Header({ navigation, settings }) {
             {navigation.data?.links.map((item) => (
               <li
                 key={prismic.asText(item.label)}
-                className="font-semibold tracking-tight text-slate-800"
+                className="font-semibold tracking-tight text-slate-800 text-bizarro"
               >
                 <PrismicNextLink field={item.link}>
-                  <PrismicText field={item.label} />
+                  <PrismicText className="white " field={item.label} />
                 </PrismicNextLink>
               </li>
             ))}

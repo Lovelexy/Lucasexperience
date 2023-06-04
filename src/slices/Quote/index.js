@@ -8,7 +8,7 @@ const Quote = ({ slice }) => {
   return (
     <Bounded as="section" className="bg-white">
       {prismic.isFilled.richText(slice.primary.quote) && (
-        <figure className="grid gap-6">
+        <figure className="grid gap-6 rounded-lg">
           <blockquote>
             <p
               className={clsx(

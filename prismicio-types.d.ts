@@ -5,6 +5,47 @@ import type * as prismic from "@prismicio/client";
 type Simplify<T> = {
   [KeyType in keyof T]: T[KeyType];
 };
+/** Content for Footer documents */
+interface FooterDocumentData {
+  /**
+   * Text field in *Footer*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: footer.text
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/core-concepts/rich-text-title
+   *
+   */
+  text: prismic.RichTextField;
+  /**
+   * Slice Zone field in *Footer*
+   *
+   * - **Field Type**: Slice Zone
+   * - **Placeholder**: *None*
+   * - **API ID Path**: footer.slices[]
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/core-concepts/slices
+   *
+   */
+  slices: prismic.SliceZone<FooterDocumentDataSlicesSlice>;
+}
+/**
+ * Slice for *Footer → Slice Zone*
+ *
+ */
+type FooterDocumentDataSlicesSlice = SocialMediaSlice;
+/**
+ * Footer document from Prismic
+ *
+ * - **API ID**: `footer`
+ * - **Repeatable**: `false`
+ * - **Documentation**: https://prismic.io/docs/core-concepts/custom-types
+ *
+ * @typeParam Lang - Language API ID of the document.
+ */
+export type FooterDocument<Lang extends string = string> =
+  prismic.PrismicDocumentWithUID<Simplify<FooterDocumentData>, "footer", Lang>;
 /** Content for Navigation documents */
 interface NavigationDocumentData {
   /**
@@ -159,6 +200,7 @@ export type SettingsDocument<Lang extends string = string> =
     Lang
   >;
 export type AllDocumentTypes =
+  | FooterDocument
   | NavigationDocument
   | PageDocument
   | SettingsDocument;
@@ -453,6 +495,62 @@ type QuoteSliceVariation = QuoteSliceDefault;
  */
 export type QuoteSlice = prismic.SharedSlice<"quote", QuoteSliceVariation>;
 /**
+ * Primary content in SocialMedia → Primary
+ *
+ */
+interface SocialMediaSliceDefaultPrimary {
+  /**
+   * Icon field in *SocialMedia → Primary*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: social_media.primary.icon
+   * - **Documentation**: https://prismic.io/docs/core-concepts/image
+   *
+   */
+  icon: prismic.ImageField<never>;
+  /**
+   * link field in *SocialMedia → Primary*
+   *
+   * - **Field Type**: Link
+   * - **Placeholder**: *None*
+   * - **API ID Path**: social_media.primary.link
+   * - **Documentation**: https://prismic.io/docs/core-concepts/link-content-relationship
+   *
+   */
+  link: prismic.LinkField;
+}
+/**
+ * Default variation for SocialMedia Slice
+ *
+ * - **API ID**: `default`
+ * - **Description**: `Default`
+ * - **Documentation**: https://prismic.io/docs/core-concepts/reusing-slices
+ *
+ */
+export type SocialMediaSliceDefault = prismic.SharedSliceVariation<
+  "default",
+  Simplify<SocialMediaSliceDefaultPrimary>,
+  never
+>;
+/**
+ * Slice variation for *SocialMedia*
+ *
+ */
+type SocialMediaSliceVariation = SocialMediaSliceDefault;
+/**
+ * SocialMedia Shared Slice
+ *
+ * - **API ID**: `social_media`
+ * - **Description**: `SocialMedia`
+ * - **Documentation**: https://prismic.io/docs/core-concepts/reusing-slices
+ *
+ */
+export type SocialMediaSlice = prismic.SharedSlice<
+  "social_media",
+  SocialMediaSliceVariation
+>;
+/**
  * Primary content in Text → Primary
  *
  */
@@ -650,6 +748,9 @@ declare module "@prismicio/client" {
   }
   namespace Content {
     export type {
+      FooterDocumentData,
+      FooterDocumentDataSlicesSlice,
+      FooterDocument,
       NavigationDocumentData,
       NavigationDocumentDataLinksItem,
       NavigationDocument,
@@ -678,6 +779,10 @@ declare module "@prismicio/client" {
       QuoteSliceDefault,
       QuoteSliceVariation,
       QuoteSlice,
+      SocialMediaSliceDefaultPrimary,
+      SocialMediaSliceDefault,
+      SocialMediaSliceVariation,
+      SocialMediaSlice,
       TextSliceDefaultPrimary,
       TextSliceDefault,
       TextSliceTwoColumnsPrimary,
