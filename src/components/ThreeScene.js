@@ -15,7 +15,7 @@ function ThreeScene() {
     const geometry1 = new THREE.BoxGeometry(0.2, 0.2, 0.2);
     const material1 = new THREE.MeshNormalMaterial();
     const mesh1 = new THREE.Mesh(geometry1, material1);
-    mesh1.position.set(0, 0, 1); // Posição do segundo cubo
+    mesh1.position.set(-1, 0, 0, 5); // Posição do segundo cubo
     scene.add(mesh1);
 
     // Segundo cubo
@@ -25,11 +25,11 @@ function ThreeScene() {
     mesh2.position.set(1, 0, 0); // Posição do segundo cubo
     scene.add(mesh2);
     
-    // Segundo cubo
+    // Terceiro cubo
     const geometry3 = new THREE.BoxGeometry(0.3, 0.3, 0.3);
     const material3 = new THREE.MeshNormalMaterial();
     const mesh3 = new THREE.Mesh(geometry2, material2);
-    mesh3.position.set(0, 1, 0); // Posição do segundo cubo
+    mesh3.position.set(0, 0, 0); // Posição do segundo cubo
     scene.add(mesh3);
 
     const renderer = new THREE.WebGLRenderer({ antialias: true });

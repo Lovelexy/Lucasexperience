@@ -6,7 +6,8 @@ import { createClient } from "@/prismicio";
 import { components } from "@/slices/";
 import { Layout } from "@/components/Layout";
 import ThreeScene from '../components/ThreeScene';
-import { Footer } from '../components/Footer';
+
+
 const Index = ({ page, navigation, settings, footer }) => {
   return (
     <Layout navigation={navigation} settings={settings} footer={footer} >

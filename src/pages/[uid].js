@@ -6,6 +6,7 @@ import { createClient } from "@/prismicio";
 import { components } from "@/slices";
 import { Layout } from "@/components/Layout";
 
+
 const Page = ({ page, navigation, settings, footer }) => {
   return (
     <Layout navigation={navigation} settings={settings} footer={footer}>
@@ -14,6 +15,7 @@ const Page = ({ page, navigation, settings, footer }) => {
           {prismic.asText(page.data.title)} |{" "}
           {prismic.asText(settings.data.siteTitle)}
         </title>
+        
       </Head>
       <SliceZone slices={page.data.slices} components={components} />
     </Layout>

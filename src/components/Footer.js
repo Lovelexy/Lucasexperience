@@ -8,7 +8,7 @@ import { components } from "@/slices/";
 
 export function Footer({ footer }) {
   return (
-    <footer className=" flex justify-between h-48 items-center bg-grey-cool text-sm max-w-6xl mx-auto">
+    <footer className=" flex justify-between h-48 items-center bg-grey-cool text-sm max-w-6xl mx-auto ">
      <PrismicRichText field={footer.data.text} />
      <SliceZone slices={footer.data.slices} components={components} />
     </footer>
