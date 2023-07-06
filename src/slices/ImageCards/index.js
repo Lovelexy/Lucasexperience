@@ -43,12 +43,13 @@ const ImageCard = ({ item }) => {
 const ImageCards = ({ slice }) => {
   return (
     <Bounded as="section" className="bg-white">
-      <div className="grid gap-12">
+      <div>
         {prismic.isFilled.richText(slice.primary.heading) && (
-          <Heading className="text-center">
+          <Heading className="text-center pb-28">
             <PrismicText field={slice.primary.heading} />
           </Heading>
         )}
+        <PrismicNextLink field={slice.primary.buttonLink}></PrismicNextLink>
         <ul className="grid grid-cols-1 items-start gap-8 md:grid-cols-2">
           {slice.items.map((item) => (
             <ImageCard key={item.image.url} item={item} />

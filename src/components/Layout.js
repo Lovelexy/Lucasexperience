@@ -1,7 +1,7 @@
 import { Header } from "./Header";
 import { Footer } from "./Footer";
 import ThreeScene from './ThreeScene';
-import * as THREE from 'three';
+
 
 export function Layout({ navigation, settings, children, footer }) {
   return (

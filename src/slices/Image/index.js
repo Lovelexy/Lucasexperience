@@ -13,7 +13,7 @@ const Image = ({ slice, index }) => {
       className={clsx("bg-white", index === 0 && "pt-0 md:pt-0")}
     >
       {prismic.isFilled.image(image) && (
-        <div className="bg-gray-100">
+        <div className="bg-gray-100 top-10">
           <PrismicNextImage field={image} sizes="100vw" className="w-full rounded-lg" />
         </div>
       )}

@@ -628,6 +628,16 @@ export type TextSlice = prismic.SharedSlice<"text", TextSliceVariation>;
  */
 interface TextWithImageSliceDefaultPrimary {
   /**
+   * title field in *TextWithImage → Primary*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: Desvendando minhas dimensões
+   * - **API ID Path**: text_with_image.primary.title
+   * - **Documentation**: https://prismic.io/docs/core-concepts/rich-text-title
+   *
+   */
+  title: prismic.RichTextField;
+  /**
    * Text field in *TextWithImage → Primary*
    *
    * - **Field Type**: Rich Text

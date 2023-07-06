@@ -15,7 +15,7 @@ const Index = ({ page, navigation, settings, footer }) => {
       <Head>
         <title>{prismic.asText(page.data.title)}</title>
       </Head>
-      {/* <SliceZone slices={page.data.slices} components={components} /> */}
+      <SliceZone slices={page.data.slices} components={components} />
       </ThreeScene>
       
     </Layout>

@@ -11,23 +11,29 @@
       "version": "sktwi1xtmkfgx8626",
       "description": "TextWithImage",
       "primary": {
+        "title": {
+          "type": "StructuredText",
+          "config": {
+            "label": "title",
+            "placeholder": "Desvendando minhas dimensões",
+            "allowTargetBlank": false,
+            "single": "heading1,strong,em,hyperlink,embed"
+          }
+        },
         "text": {
           "type": "StructuredText",
           "config": {
             "label": "Text",
             "placeholder": "",
             "allowTargetBlank": true,
-            "multi": "paragraph,heading1,heading2,heading3,strong,em,hyperlink,list-item,o-list-item"
+            "multi": "heading1,heading2,heading3,strong,em,hyperlink,list-item,o-list-item,paragraph"
           }
         },
         "image": {
           "type": "Image",
           "config": {
             "label": "Image",
-            "constraint": {
-              "width": 1000,
-              "height": 1200
-            },
+            "constraint": { "width": 1000, "height": 1200 },
             "thumbnails": []
           }
         }
@@ -56,23 +62,17 @@
           "config": {
             "label": "Button Link",
             "placeholder": "",
+            "allowTargetBlank": true,
             "select": null
           }
         },
         "buttonText": {
           "type": "Text",
-          "config": {
-            "label": "Button Text",
-            "placeholder": ""
-          }
+          "config": { "label": "Button Text", "placeholder": "" }
         },
         "image": {
           "type": "Image",
-          "config": {
-            "label": "Image",
-            "constraint": {},
-            "thumbnails": []
-          }
+          "config": { "label": "Image", "constraint": {}, "thumbnails": [] }
         }
       },
       "items": {},
